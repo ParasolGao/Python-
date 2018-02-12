@@ -1,7 +1,16 @@
-from sys import argv 
-script, first, second, third, forth = argv
-print "The script is called:", script
-print "Your first variable is:", first
-print "Your second variable is:", second
-print "Your third variable is:", third
-print "Your forth variable is:", forth
+from sys import argv
+
+script, filename = argv
+
+txt = open(filename)
+
+print "Here's your file %r:" % filename
+print txt.read()
+
+print "Type the filename again:"
+file_again = raw_input("> ")
+
+txt_again = open(file_again)
+close(txt)
+close(txt_again)
+print txt_again.read()
