@@ -1,26 +1,33 @@
 from sys import argv
 
-script, filename = argv
+script, input_file = argv
 
-print "We're going to erase %s" % filename
-print "If you don't want that, hit CTRL_C(^C "
-print "If you want that, hit RETURN"
+def print_all(f):
+    print f.read()
 
-raw_input("?")
+def rewind(f):
+    f.seek(0)
 
-print "Opening the file..."
-target = open(filename,'w')
+def print_a_line(line_count, f):
+    print line_count, f.readline()
 
-print "Truncating the file...Goodbye!"
+current_file = open(input_file)
 
+print "First let's print the whole file:\n"
 
-print "Now I'm going to ask you for three lines."
-line1 = raw_input("line 1: ")
-line2 = raw_input("line 2: ")
-line3 = raw_input("line 3: ")
+print_all(current_file)
 
-print "I'm going to write these to the file"
-target.write("%s\n%s\n%s\n" %(line1,line2,line3))
+print "Now let's rewind, kind of like a tape."
 
-print "I'm finally, we close it."
-target.close() 
+rewind(current_file)
+
+print "Let's print three lines:"
+
+current_line = 1
+print_a_line(current_line, current_file)
+
+current_line = current_line + 1
+print_a_line(current_line, current_file)
+
+current_line = current_line + 1
+print_a_line(current_line, current_file)
