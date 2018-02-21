@@ -19,5 +19,4 @@ print stuff[1]
 print stuff[-1]
 print stuff.pop()
 print ' '.join(stuff)
-print stuff
-#print '#'.join(stuff[3:5])
+print '#'.join(stuff[3:5])

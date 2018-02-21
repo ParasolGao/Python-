@@ -9,7 +9,7 @@ def find_city(themap, state):
     else:
         return "Not found"
 
-cities['_find'] = find_city()
+cities['_find'] = find_city
 
 while True:
     print "State? (ENTER to quit)",
